@@ -1,0 +1,49 @@
+@startuml
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class Utilisateur{
+    String nom
+    int caution
+}
+
+class Emprunt{
+    Date retour
+}
+class Exemplaire{
+    int codeBarre
+}
+class Ressource{
+    String titre
+    int caution
+}
+
+class Emplacement{
+    int trave
+    int etagere
+    int  niveau
+}
+
+class Livre{
+    String auteur
+    int ISBN
+}
+
+class Revue{
+    int volume
+    Date parution
+}
+
+Utilisateur "0..1" -- "*" Exemplaire
+(Exemplaire, Utilisateur) .. Emprunt
+
+
+Ressource <|-- Livre
+Ressource <|-- Revue
+Ressource  *-- Exemplaire
+
+Emplacement "1" -- "*" Ressource
+
+
+
+@enduml

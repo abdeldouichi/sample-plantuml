@@ -1,0 +1,43 @@
+@startuml
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+
+
+
+package "Guichet automatique" {
+
+(Retirer de l'argent) as (retrait)
+(Consulter ses comptes) as (consulter)
+(Déposer des chèques) as (deposer)
+(Effectuer un virement) as (effectuer)
+(S'identifier) as (identifier)
+(Enregistrer un bénéficiaire) as (beneificiere)
+
+retrait ..> identifier
+consulter ..> identifier
+deposer ..> identifier
+effectuer ..> identifier
+beneificiere ..> effectuer
+}
+
+:Client de la banque: as PClient
+Client <|-- PClient
+Client --> (retrait)
+PClient --> (consulter)
+PClient --> (deposer)
+PClient --> (effectuer)
+
+
+
+
+
+
+note right of PClient : C'est un client banque
+
+note right of (retrait)
+Pour retirer de l'argent il faut avoir la carte bancaire,
+Il faut avoir de l'argent dans le compte bancaire
+end note
+
+@enduml

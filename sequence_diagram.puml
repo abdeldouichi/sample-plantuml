@@ -1,0 +1,52 @@
+@startuml
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+
+actor "<u>: Employé</u>" as Client
+
+
+
+Client -> "<u>:SGB</u>": EffectuerVirement(id, noC1, noC2n mnt)
+activate Client
+activate "<u>:SGB</u>"
+"<u>:SGB</u>" -> "<u>:SGB</u>": chercherClient(id)
+"<u>:SGB</u>" --> "<u>:SGB</u>": client
+
+"<u>:SGB</u>" -> "<u>client1:Client</u>" : compte(noC1)
+activate "<u>client1:Client</u>"
+"<u>:SGB</u>" <-- "<u>client1:Client</u>" : c1
+deactivate "<u>client1:Client</u>"
+
+"<u>:SGB</u>" -> "<u>client1:Client</u>" : compte(noC2)
+activate "<u>client1:Client</u>"
+"<u>:SGB</u>" <-- "<u>client1:Client</u>" : c2
+deactivate "<u>client1:Client</u>"
+
+"<u>:SGB</u>" -> "<u>virement1:Virement</u>" : Virement(c1,c2,mnt)
+activate "<u>virement1:Virement</u>"
+"<u>:SGB</u>" <-- "<u>virement1:Virement</u>" : virement1
+deactivate "<u>virement1:Virement</u>"
+
+"<u>:SGB</u>" -> "<u>virement1:Virement</u>" : effectuer()
+activate "<u>virement1:Virement</u>"
+
+"<u>virement1:Virement</u>" -> "<u>c1:Compte</u>" : retirer(mnt)
+activate "<u>c1:Compte</u>"
+"<u>virement1:Virement</u>" <-- "<u>c1:Compte</u>" : true
+deactivate "<u>c1:Compte</u>"
+
+"<u>virement1:Virement</u>" -> "<u>c1:Compte</u>" : déposer(mnt)
+activate "<u>c1:Compte</u>"
+"<u>virement1:Virement</u>" <-- "<u>c1:Compte</u>" : true
+deactivate "<u>c1:Compte</u>"
+
+"<u>:SGB</u>" <-- "<u>virement1:Virement</u>" : true
+deactivate "<u>virement1:Virement</u>"
+"<u>:SGB</u>" --> Client : true
+
+
+
+deactivate Client
+deactivate "<u>:SGB</u>"
+@enduml
