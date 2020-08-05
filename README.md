@@ -1,12 +1,9 @@
 PlantUML 
+
 ========
-[![Build Status](https://travis-ci.org/plantuml/plantuml.png?branch=master)](https://travis-ci.org/plantuml/plantuml)
 
 The diagram's files can be displayed by the web tool https://www.planttext.com/
 
-Generate UML diagram from textual description
-
-PlantUML is a component that allows to quickly write :
 
  * [Sequence diagram](http://plantuml.com/sequence-diagram),
  * [Use case diagram](http://plantuml.com/use-case-diagram),
@@ -18,17 +15,14 @@ PlantUML is a component that allows to quickly write :
  * [Deployment diagram](http://plantuml.com/deployment-diagram),
  * [Timing diagram](http://plantuml.com/timing-diagram)
  
-And also:
  * [Activity diagram (legacy syntax)](http://plantuml.com/activity-diagram-legacy)
  * [Archimate diagram](http://plantuml.com/archimate)
  * [Gantt charts](http://plantuml.com/gantt-diagram)
  * [SALT UI mockups](http://plantuml.com/salt)
 
-Furthermore:
  * [Hyperlinks and tooltips](http://plantuml.com/link)
  * [Creole](http://plantuml.com/creole): rich text, emoticons, unicode, icons
  * [OpenIconic icons](http://plantuml.com/openiconic)
  * [Sprite icons](http://plantuml.com/sprite)
  * [AsciiMath mathematical expressions](http://plantuml.com/ascii-math)
 
-To know more about PlantUML, please visit http://plantuml.com/
